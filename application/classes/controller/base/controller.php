@@ -14,11 +14,11 @@ abstract class Controller extends Controller_Template
 {
 
 	public $template = 'template';
+	protected $title = '';
 
 	public function before()
 	{
 		parent::before();
-		$this->template->header = '';
 	}
 
 	public function after($response)
@@ -34,6 +34,7 @@ abstract class Controller extends Controller_Template
 		}
 
 		$this->template->navigation = Presenter::forge('template/navigation');
+		$this->template->title = $this->title;
 
 		return parent::after($response);
 	}

@@ -15,6 +15,7 @@ class Dashboard extends Controller
 
 	public function action_index()
 	{
+		$this->title = 'Overview';
 		$this->template->content = View::forge('dashboard/index');
 	}
 
