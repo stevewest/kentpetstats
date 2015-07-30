@@ -38,6 +38,12 @@ class Pets extends Controller
 
 		$colour = imagecreatefrompng($pathBase.'colour/'.$pet['colour'].'.png');
 		$mouth = imagecreatefrompng($pathBase.'mouth/'.$pet['face']['mouth'].'.png');
+
+		if ($pet['face']['eyes'] == '~')
+		{
+			$pet['face']['eyes'] = 'tilde';
+		}
+
 		$eye = imagecreatefrompng($pathBase.'eye/'.$pet['face']['eyes'].'.png');
 		$ear = imagecreatefrompng($pathBase.'ear/'.$pet['face']['ears'].'.png');
 		$sound = imagecreatefrompng($pathBase.'sound/'.$pet['sound'].'.png');
