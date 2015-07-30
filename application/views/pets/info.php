@@ -11,19 +11,15 @@
 							<td><?php echo $value; ?></td>
 						</tr>
 					<?php endforeach; ?>
-					<tr>
-						<td>Sound</td>
-						<td><?php echo $sound; ?></td>
-					</tr>
-					<tr>
-						<td>Colour</td>
-						<td><?php echo $colour; ?></td>
-					</tr>
 				</table>
 			</div>
 		</div>
 	</div>
-	<div class="col-md-6">Pet image here!</div>
+	<div class="col-md-6">
+		<div class="well">
+			<img src="<?php echo Uri::create('pets/image/'.$_id); ?>" />
+		</div>
+	</div>
 </div>
 
 <div class="row">
