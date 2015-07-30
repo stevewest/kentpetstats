@@ -1,0 +1,10 @@
+.idea
+fuel
+bin
+classes.php
+application/logs
+application/cache
+application/tmp
+application/config/crypt.php
+composer.lock
+application/config/*/*
