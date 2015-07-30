@@ -33,7 +33,7 @@ abstract class Controller extends Controller_Template
 			Messages::flush();
 		}
 
-		$this->template->navigation = View::forge('template/navigation');
+		$this->template->navigation = Presenter::forge('template/navigation');
 
 		return parent::after($response);
 	}
