@@ -1,8 +1,10 @@
 <?php
 /**
- * @author Steve "uru" West <steven.david.west@gmail.com>
- * @license proprietary http://opensource.org/licenses/MIT
- * @link https://bitbucket.org/stevewest/maxikitten
+ * @copyright  2015 Steve "uru" West
+ * @license    MIT
+ * @link       https://github.com/stevewest/kentpetstats
+ *
+ * @author     Steve "uru" West <steven.david.west@gmail.com>
  */
 
 namespace Controller;
