@@ -28,14 +28,22 @@ class Owner
 			$query->where('_id', $username);
 		});
 
-		$pets = MongoConnection::instance()
+		$petResult = MongoConnection::instance()
 			->collection('pets')
 			->find(function($query) use ($user){
 				/** @var \League\Monga\Query\Find $query */
 				$query->andWhereIn('_id', $user['pets']);
 			});
 
-		$user['pets'] = $pets->toArray();
+		$pets = [];
+		foreach ($petResult as $pet)
+		{
+			$petInfo = $pet;
+			$petInfo['name_slug'] = \Inflector::friendly_title($pet['name']);
+			$pets[] = $petInfo;
+		}
+
+		$user['pets'] = $pets;
 
 		return $user;
 	}

@@ -57,5 +57,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+<script>
+	$(document).ready(function() {
+		var url = document.location.toString();
+		if (url.match('#')) {
+			$('.nav-tabs a[href=#'+url.split('#')[1]+']').tab('show');
+		}
+		$('.nav-tabs a').on('shown.bs.tab', function (e) {
+			window.location.hash = e.target.hash;
+			window.scrollTo(0, 0);
+		})
+	});
+</script>
+
 </body>
 </html>
