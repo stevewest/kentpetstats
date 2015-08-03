@@ -30,9 +30,13 @@ class MongoConnection
 
 	private function __construct()
 	{
-		$connection = Monga::connection();
-		// TODO: Move this to config!
-		$this->database = $connection->database('kentpet');
+		Config::load('mongo', true);
+
+		$connection = Monga::connection(
+			Config::get('mongo.dsn'),
+			Config::get('mongo.options', [])
+		);
+		$this->database = $connection->database(Config::get('mongo.database'));
 	}
 
 	/**
