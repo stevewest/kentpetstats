@@ -18,8 +18,14 @@ class Presenter_Template_Navigation extends Presenter
 
 		foreach (Owner::find() as $id => $owner)
 		{
-			$owners[$id] = $owner;
-			$owners[$id]['active'] = Str::ends_with($_SERVER['REQUEST_URI'], 'pets/'.$owner['_id']);
+			if (count($owner['pets']) > 0)
+			{
+				$owners[$id] = $owner;
+				$owners[$id]['active'] = Str::ends_with(
+					$_SERVER['REQUEST_URI'],
+					'pets/' . $owner['_id']
+				);
+			}
 		}
 
 		$this->set('owners', $owners);
