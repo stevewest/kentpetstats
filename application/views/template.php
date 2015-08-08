@@ -54,6 +54,17 @@
 	</div>
 </div>
 
+<footer class="footer">
+	<div class="container pull-right">
+		<p class="text-muted">
+			&copy 2015 Steve "uru" West, released under <a href="https://github.com/stevewest/kentpetstats/blob/master/COPYING">MIT license</a>.
+			<a href="https://github.com/stevewest/kentpetstats">
+				<?php echo \Asset::img('GitHub-Mark-32px.png', ['title' => 'GitHub', 'alt' => 'GitHub']); ?>
+			</a>
+		</p>
+	</div>
+</footer>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
