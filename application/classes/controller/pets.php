@@ -32,7 +32,7 @@ class Pets extends Controller
 
 		if ($owner['vacation'])
 		{
-			$this->title .= ' <span class="glyphicon glyphicon-plane"></span>';
+			$this->page_title = $this->title . ' <span class="glyphicon glyphicon-plane"></span>';
 		}
 
 		$this->template->content = View::forge('pets/index', ['owner' => $owner]);

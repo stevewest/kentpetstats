@@ -22,6 +22,7 @@ abstract class Controller extends Controller_Template
 
 	public $template = 'template';
 	protected $title = '';
+	protected $page_title = '';
 
 	public function before()
 	{
@@ -41,7 +42,8 @@ abstract class Controller extends Controller_Template
 		}
 
 		$this->template->navigation = Presenter::forge('template/navigation');
-		$this->template->set('title', $this->title, false);
+		$this->template->set('title', $this->title);
+		$this->template->set('page_title', $this->page_title, false);
 
 		return parent::after($response);
 	}
