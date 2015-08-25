@@ -4,6 +4,7 @@
 	<div class="col-md-6">
 		<div class="row">
 			<div class="col-md-12">
+				<?php if (isset($stats)): ?>
 				<table class="table table-striped">
 					<?php foreach ($stats as $name => $value): ?>
 						<tr>
@@ -12,6 +13,7 @@
 						</tr>
 					<?php endforeach; ?>
 				</table>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

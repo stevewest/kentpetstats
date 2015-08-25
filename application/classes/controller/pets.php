@@ -49,29 +49,38 @@ class Pets extends Controller
 
 		$pathBase = DOCROOT.'/assets/img/';
 
-		$colour = imagecreatefrompng($pathBase.'colour/'.$pet['colour'].'.png');
-		$mouth = imagecreatefrompng($pathBase.'mouth/'.$pet['face']['mouth'].'.png');
-
-		if ($pet['face']['eyes'] == '~')
-		{
-			$pet['face']['eyes'] = 'tilde';
-		}
-
-		$eye = imagecreatefrompng($pathBase.'eye/'.$pet['face']['eyes'].'.png');
-		$ear = imagecreatefrompng($pathBase.'ear/'.$pet['face']['ears'].'.png');
-		$sound = imagecreatefrompng($pathBase.'sound/'.$pet['sound'].'.png');
-
 		list($width, $height) = getimagesize($pathBase.'colour/'.$pet['colour'].'.png');
-
 		$base = imagecreatetruecolor($width, $height);
 		imagealphablending($base, true);
 		imagesavealpha($base, true);
 		imagefill($base, 0, 0, imagecolorallocatealpha($base, 255, 255, 255, 127));
 
+		$colour = imagecreatefrompng($pathBase.'colour/'.$pet['colour'].'.png');
 		imagecopy($base, $colour, 0, 0, 0, 0, $width, $height);
-		imagecopy($base, $mouth, 0, 0, 0, 0, $width, $height);
-		imagecopy($base, $eye, 0, 0, 0, 0, $width, $height);
-		imagecopy($base, $ear, 0, 0, 0, 0, $width, $height);
+
+		if (isset($pet['face']['mouth']))
+		{
+			$mouth = imagecreatefrompng($pathBase.'mouth/'.$pet['face']['mouth'].'.png');
+			imagecopy($base, $mouth, 0, 0, 0, 0, $width, $height);
+		}
+
+		if (isset($pet['face']['eyes']))
+		{
+			if ($pet['face']['eyes'] == '~')
+			{
+				$pet['face']['eyes'] = 'tilde';
+			}
+			$eye = imagecreatefrompng($pathBase.'eye/'.$pet['face']['eyes'].'.png');
+			imagecopy($base, $eye, 0, 0, 0, 0, $width, $height);
+		}
+
+		if (isset($pet['face']['ears']))
+		{
+			$ear = imagecreatefrompng($pathBase.'ear/'.$pet['face']['ears'].'.png');
+			imagecopy($base, $ear, 0, 0, 0, 0, $width, $height);
+		}
+
+		$sound = imagecreatefrompng($pathBase.'sound/'.$pet['sound'].'.png');
 		imagecopy($base, $sound, 0, 0, 0, 0, $width, $height);
 
 		header('Content-Type: image/png');

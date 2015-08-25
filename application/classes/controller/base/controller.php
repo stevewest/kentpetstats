@@ -24,11 +24,6 @@ abstract class Controller extends Controller_Template
 	protected $title = '';
 	protected $page_title = '';
 
-	public function before()
-	{
-		parent::before();
-	}
-
 	public function after($response)
 	{
 		$this->template->messages = '';
