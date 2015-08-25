@@ -26,4 +26,9 @@ class Dashboard extends Controller
 		$this->template->content = View::forge('dashboard/404');
 	}
 
+	public function action_servererror()
+	{
+		$this->template->content = View::forge('dashboard/500');
+	}
+
 }
