@@ -59,25 +59,25 @@ class Pets extends Controller
 		$colour = imagecreatefrompng($pathBase.'colour/'.$pet['colour'].'.png');
 		imagecopy($base, $colour, 0, 0, 0, 0, $width, $height);
 
-		if (isset($pet['face']['mouth']))
+		if (isset($pet['mouth']))
 		{
-			$mouth = imagecreatefrompng($pathBase.'mouth/'.$pet['face']['mouth'].'.png');
+			$mouth = imagecreatefrompng($pathBase.'mouth/'.$pet['mouth'].'.png');
 			imagecopy($base, $mouth, 0, 0, 0, 0, $width, $height);
 		}
 
-		if (isset($pet['face']['eyes']))
+		if (isset($pet['eyes']))
 		{
-			if ($pet['face']['eyes'] == '~')
+			if ($pet['eyes'] == '~')
 			{
-				$pet['face']['eyes'] = 'tilde';
+				$pet['eyes'] = 'tilde';
 			}
-			$eye = imagecreatefrompng($pathBase.'eye/'.$pet['face']['eyes'].'.png');
+			$eye = imagecreatefrompng($pathBase.'eye/'.$pet['eyes'].'.png');
 			imagecopy($base, $eye, 0, 0, 0, 0, $width, $height);
 		}
 
-		if (isset($pet['face']['ears']))
+		if (isset($pet['ears']))
 		{
-			$ear = imagecreatefrompng($pathBase.'ear/'.$pet['face']['ears'].'.png');
+			$ear = imagecreatefrompng($pathBase.'ear/'.$pet['ears'].'.png');
 			imagecopy($base, $ear, 0, 0, 0, 0, $width, $height);
 		}
 
